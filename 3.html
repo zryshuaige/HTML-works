@@ -1,0 +1,88 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>三</title>  
+<style>  
+    canvas {  
+        border: 1px solid black;  
+    }  
+</style> 
+    
+<script>
+    function draw_name(){
+    const canvas = document.getElementById('myCanvas');  
+    const ctx = canvas.getContext('2d');  
+  
+    // 绘制名字及其阴影  
+    const name = '章荣溢'; 
+    ctx.font = '60px Arial';   
+    ctx.fillStyle = 'black'; // 文字颜色  
+    ctx.fillText(name, 400, 100); // 文字位置  
+  
+  
+    const image = new Image();  
+    image.src = 'zc.png'; 
+    image.onload = function() {  
+        ctx.drawImage(image, 300, 150, 400, 200); // 图片位置和大小  
+    };  
+  
+    // 绘制圆形（半径递减，透明度递增）  
+    for (let i = 250; i > 50; i -= 10) {  
+        ctx.beginPath();  
+        ctx.arc(100, 300, i, 0, Math.PI * 2);  
+        ctx.globalAlpha = 1 - (i / 250); // 透明度递增  
+        ctx.fillStyle = 'blue'; // 圆形颜色  
+        ctx.fill();  
+        ctx.closePath();  
+    }  
+  
+    // 绘制径向渐变的矩形    
+  // 创建线性渐变  
+  const gradient = ctx.createLinearGradient(0, 350,0, 350+canvas.height/4);  
+    
+  // 添加颜色到渐变  
+  gradient.addColorStop(0, 'red'); // 顶部颜色  
+  gradient.addColorStop(0.5, 'yellow'); // 中间颜色  
+  gradient.addColorStop(1, 'red'); // 底部颜色  
+    
+  // 设置矩形的填充样式为渐变  
+  ctx.fillStyle = gradient;  
+    
+  // 绘制矩形  
+  ctx.fillRect(400, 350, canvas.width/4, canvas.height/4);   
+  
+  drawStar(850, 350, 5, 100, 45)// 参数分别为：中心x坐标，中心y坐标，角数，外半径，内半径
+}
+
+function drawArc(cx, cy, radius) {  
+    ctx.beginPath();  
+    ctx.arc(cx, cy, radius, Math.PI *5/3, Math.PI *4/3, true); 
+    ctx.lineWidth = 1;  
+    ctx.strokeStyle = 'red';  
+    ctx.stroke();  
+  }  
+  
+  // 绘制半径不断变大的圆弧序列  
+  function drawExpandingArcs() {  
+    const startRadius = 10;  
+    const endRadius = 150;  
+    const step = 10; // 半径增加的步长  
+  
+    // 清除画布  
+    ctx.clearRect(0, 0, canvas.width, canvas.height);  
+  
+    for (let radius = startRadius; radius <= endRadius; radius += step) {  
+      drawArc(canvas.width / 2, canvas.height / 2, radius); // 在画布中心绘制圆弧  
+    }  
+  }  
+</script>
+
+</head>
+<body>
+    <canvas id="myCanvas" width="1000" height="750"></canvas> 
+    <script> draw_name();</script>  
+    <script>drawExpandingArcs();</script>
+</body>  
+</html>
