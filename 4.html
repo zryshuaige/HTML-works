@@ -1,0 +1,108 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>四</title>  
+<style>
+    .center
+    {
+        text-align:center;
+    }
+</style>
+<script>  
+  window.onload = function() {  
+    // 初始化票数  
+    var audioVotes = localStorage.getItem('audioVotes') || 0;  
+    var videoVotes = localStorage.getItem('videoVotes') || 0;  
+      
+    // 显示票数  
+    document.getElementById('audioVotesCount').textContent = audioVotes;  
+    document.getElementById('videoVotesCount').textContent = videoVotes;  
+      
+    // 大众投票  
+    document.getElementById('voteAudio').addEventListener('click', function() {  
+      audioVotes++;  
+      updateVotes(audioVotes, 'audioVotes');  
+      displayVotes();  
+    });  
+      
+    document.getElementById('voteVideo').addEventListener('click', function() {  
+      videoVotes++;  
+      updateVotes(videoVotes, 'videoVotes');  
+      displayVotes();  
+    });  
+      
+    // 专家投票（5票）  
+    document.getElementById('voteAudioExpert').addEventListener('click', function() {  
+      audioVotes += 5;  
+      updateVotes(audioVotes, 'audioVotes');  
+      displayVotes();  
+    });  
+      
+    document.getElementById('voteVideoExpert').addEventListener('click', function() {  
+      videoVotes += 5;  
+      updateVotes(videoVotes, 'videoVotes');  
+      displayVotes();  
+    });  
+      
+    // 宣布胜者  
+    document.getElementById('declareWinner').addEventListener('click', function() {  
+      if (audioVotes > videoVotes) {  
+        alert('音频获胜！');  
+      } else if (videoVotes > audioVotes) {  
+        alert('视频获胜！');  
+      } else {  
+        alert('平局！');  
+      }  
+    });  
+      
+    // 更新票数并存储到localStorage  
+    function updateVotes(newVotes, voteType) {  
+      localStorage.setItem(voteType, newVotes);  
+    }  
+      
+    // 显示票数  
+    function displayVotes() {  
+      document.getElementById('audioVotesCount').textContent = localStorage.getItem('audioVotes') || 0;  
+      document.getElementById('videoVotesCount').textContent = localStorage.getItem('videoVotes') || 0;  
+    }  
+  };  
+</script>  
+</head>  
+<body>  
+  
+
+<h1 >姓名</h1>  
+<br>
+<audio controls>  
+  <source src="Love In Blue.mp3" type="audio/mpeg">  
+  您的浏览器不支持 audio 元素。  
+</audio>  
+  
+<br>
+<button id="voteAudio">大众为音频投票</button>  
+<br><br>
+<button id="voteAudioExpert">专家为音频投票</button>   
+
+<br>
+<h1 >学号</h1> 
+<video width="320" height="240" controls>  
+    <source src="waterfall.mp4" type="video/mp4">  
+    您的浏览器不支持 video 元素。  
+  </video> 
+  
+</br>
+<button id="voteVideo">大众为视频投票</button>  
+<br><br>
+<button id="voteVideoExpert">专家为视频投票</button> 
+
+<br>
+<p>音频已获得<span id="audioVotesCount">0</span>票！</p>
+<p>音频已获得<span id="videoVotesCount">0</span>票！</p>  
+<br>
+
+<button id="declareWinner">宣布胜者</button>  
+  
+</body>  
+</html>
