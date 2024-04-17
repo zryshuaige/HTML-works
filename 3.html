@@ -44,8 +44,15 @@
     
   // 绘制矩形  
   ctx.fillRect(400, 350, canvas.width/4, canvas.height/4);   
-  
-  drawStar(850, 350, 5, 100, 45)// 参数分别为：中心x坐标，中心y坐标，角数，外半径，内半径
+
+   //绘制半径不断变小的圆 
+   ctx.fillStyle = 'red';  
+   for(let i=1;i<=5;i++){
+  ctx.beginPath();
+  ctx.arc(70, 75+110*i, 60-10*i, 0, 2 * Math.PI);  
+  ctx.stroke();
+  ctx.fill();
+  }
 }
 </script>
 </head>
