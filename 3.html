@@ -16,8 +16,10 @@
     const ctx = canvas.getContext('2d');  
   
     // 绘制名字及其阴影  
-    const name = '章荣溢'; 
+    const name = 'name'; 
     ctx.font = '60px Arial';   
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'; // 阴影颜色  
+    ctx.fillText(name, 397, 103); // 阴影位置  
     ctx.fillStyle = 'black'; // 文字颜色  
     ctx.fillText(name, 400, 100); // 文字位置  
   
