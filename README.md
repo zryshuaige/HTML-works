@@ -4,11 +4,11 @@
 
 ### 本站采用的技术栈有 
 
-－ [Vue3](https://cn.vuejs.org/)
-－ [ElementPlus](https://element-plus.org/zh-CN/)
+- [Vue3](https://cn.vuejs.org/)
+- [ElementPlus](https://element-plus.org/zh-CN/)
 ###  本站采用的API接口
-－ [一言]（https://hitokoto.cn/） 
-－ [高德开放平台](https://lbs.amap.com/)
+- [一言](https://hitokoto.cn/） 
+- [高德开放平台](https://lbs.amap.com/)
 
 ***
 
