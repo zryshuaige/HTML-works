@@ -1,7 +1,9 @@
 # VUE暑期前端开发大作业
  
 ## 网站解释
+
 ### 本站采用的技术栈有 
+
 － [Vue3](https://cn.vuejs.org/)
 － [ElementPlus](https://element-plus.org/zh-CN/)
 ###  本站采用的API接口
