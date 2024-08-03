@@ -1,10 +1,12 @@
 # VUE暑期前端开发大作业
  
 ## 网站解释
-### 本站采用的技术栈有 [Vue3](https://cn.vuejs.org)+[ElementPlus](https://element-plus.org/zh-CN/)
-###  
-
-
+### 本站采用的技术栈有 
+－ [Vue3](https://cn.vuejs.org/)
+－ [ElementPlus](https://element-plus.org/zh-CN/)
+###  本站采用的API接口
+－ [一言]（https://hitokoto.cn/） 
+－ [高德开放平台](https://lbs.amap.com/)
 
 ***
 
@@ -24,7 +26,7 @@
 ## 使用方法
 1. 在cmd中cd文件位置
 2. 输入```npm run dev```
-3. 打开 <http://localhost:5173>
+3. 打开 <https://localhost:5173>
 
 ***
 
